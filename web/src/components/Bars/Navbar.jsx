@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="flex flex-col justify-center items-center w-full">
       <div className="text-3xl font-bold" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>NUDE</div>
 
-      <div className="hidden lg:flex w-full py-8 justify-between items-center">
+      <div className="hidden lg:flex w-full pt-8 justify-between items-center">
         {/* Search text */}
         <div className="ml-4">
           <div className="relative flex-1 mx-4">
@@ -31,11 +31,10 @@ const Navbar = () => {
           <li>SHOP</li>
           <li>SERVICES</li>
           <li>GIFT CARD</li>
-          <li>CONTACT</li>
         </ul>
 
         {/* Login and basket */}
-        <div className="flex gap-5 mr-4 text-2xl">
+        <div className="flex gap-5 m-5 text-2xl">
           <FaUserCircle />
           <FaShoppingBasket  />
         </div>
@@ -62,7 +61,6 @@ const Navbar = () => {
             <li>SHOP</li>
             <li>SERVICES</li>
             <li>GIFT CARD</li>
-            <li>CONTACT</li>
           </ul>
 
           {/* Login and basket */}
