@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { FaSearch, FaUserCircle, FaShoppingBasket } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setSearchTerm } from "../../redux/productSlice";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log(search);
+    dispatch(setSearchTerm(search));
+    navigate('/search');
   };
 
   return (
