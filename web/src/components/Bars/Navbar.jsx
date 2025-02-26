@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex flex-col justify-center items-center w-full">
-      <div className="text-3xl font-bold" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>NUDE</div>
+      <div className="text-3xl font-bold" style={{ fontFamily: "'Lucida Handwriting', cursive" }} onClick={() => navigate('/')}>NUDE</div>
 
       <div className="hidden lg:flex w-full pt-8 justify-between items-center">
         {/* Search text */}
