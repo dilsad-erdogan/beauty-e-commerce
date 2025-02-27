@@ -33,7 +33,7 @@ const SearchCard = ({ data }) => {
         {/* Fiyat ve Sepet */}
         <div className="flex justify-between items-center">
           <span className="text-lg font-bold">{data.price},00₺</span>
-          <button className="bg-yellow-500 p-2 rounded-full hover:bg-yellow-600 text-white transition duration-200" onClick={(e) => handleAddToCard(e, data)}>
+          <button className="bg-pink-500 p-2 rounded-full hover:bg-pink-600 text-white transition duration-200" onClick={(e) => handleAddToCard(e, data)}>
             <BsBasket3Fill />
           </button>
         </div>
