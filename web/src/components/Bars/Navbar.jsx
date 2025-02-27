@@ -37,6 +37,7 @@ const Navbar = () => {
           <li>SHOP</li>
           <li>SERVICES</li>
           <li>GIFT CARD</li>
+          <li>CONTACT</li>
         </ul>
 
         {/* Login and basket */}
@@ -67,6 +68,7 @@ const Navbar = () => {
             <li>SHOP</li>
             <li>SERVICES</li>
             <li>GIFT CARD</li>
+            <li>CONTACT</li>
           </ul>
 
           {/* Login and basket */}
