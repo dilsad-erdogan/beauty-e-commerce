@@ -22,7 +22,7 @@ const SearchCard = ({ data }) => {
     <div className="shadow-lg overflow-hidden w-64">
       {/* Ürün Görseli */}
       <div className="flex justify-center my-4">
-        <img src={data.image} alt={data.name} className="w-24 h-24 object-cover" />
+        <img src={data.image} alt={data.name} className="w-full h-full object-cover" />
       </div>
   
       {/* Ürün İçeriği */}
