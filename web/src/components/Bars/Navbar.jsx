@@ -37,7 +37,7 @@ const Navbar = () => {
           <li>SHOP</li>
           <li>SERVICES</li>
           <li>GIFT CARD</li>
-          <li>CONTACT</li>
+          <li onClick={() => navigate('/contact-us')}>CONTACT</li>
         </ul>
 
         {/* Login and basket */}
