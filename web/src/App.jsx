@@ -3,6 +3,7 @@ import Main from './pages/Main';
 import Navbar from './components/Bars/Navbar';
 import Shop from './pages/Shop';
 import Search from './pages/Search';
+import Footer from './components/Bars/Footer';
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
           <Route path='/shop' element={<Shop />} />
           <Route path='/search' element={<Search />} />
         </Routes>
+
+        {/* Footer */}
+        <div className='mt-5'>
+          <Footer />
+        </div>
       </Router>
     </div>
   )
