@@ -19,7 +19,7 @@ const SearchCard = ({ data }) => {
   }
 
   return (
-    <div className="shadow-lg overflow-hidden w-64">
+    <div className="overflow-hidden">
       {/* Ürün Görseli */}
       <div className="flex justify-center my-4">
         <img src={data.image} alt={data.name} className="w-full h-full object-cover" />

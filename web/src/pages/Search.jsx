@@ -18,7 +18,7 @@ const Search = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {filterProducts.map(((product) => (
-                <div key={product._id} className="h-full w-full">
+                <div key={product._id} className="bg-white p-4 rounded-lg shadow-md">
                   <SearchCard data={product} />
                 </div>
               )))}
