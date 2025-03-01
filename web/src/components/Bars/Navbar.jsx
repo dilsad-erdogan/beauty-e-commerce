@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IoMdMenu } from "react-icons/io";
-import { FaSearch, FaUserCircle, FaShoppingBasket } from "react-icons/fa";
+import { FaSearch, FaUserCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setSearchTerm } from "../../redux/productSlice";
@@ -8,6 +8,7 @@ import { setProducts } from "../../redux/productSlice";
 import { setCategories } from "../../redux/categorySlice";
 import productServices from "../../../../api/services/product";
 import categorieServices from "../../../../api/services/categorie";
+import CartSidebar from "./CartSidebar";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -78,7 +79,7 @@ const Navbar = () => {
         {/* Login and basket */}
         <div className="flex gap-5 m-5 text-2xl">
           <FaUserCircle />
-          <FaShoppingBasket  />
+          <CartSidebar />
         </div>
       </div>
 
@@ -109,7 +110,7 @@ const Navbar = () => {
           {/* Login and basket */}
           <div className="flex gap-5 mr-4 text-2xl">
             <FaUserCircle />
-            <FaShoppingBasket  />
+            <CartSidebar />
           </div>
         </div>
       )}
