@@ -4,7 +4,7 @@ async function setService (req, res) {
     try{
         const { name, time, price, image } = req.body;
 
-        const product = new Product({
+        const service = new Service({
             name: name,
             price: price,
             time: time,
@@ -13,7 +13,7 @@ async function setService (req, res) {
             is_active: true
         });
 
-        const savedService = await product.save();
+        const savedService = await service.save();
         if(savedService) {
             res.status(201).json({ success: true, data: savedService });
         } else {
