@@ -1,11 +1,10 @@
 import { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { PiEmptyBold } from "react-icons/pi";
-import SearchCard from "../components/Card/SearchCard";
+import ProductCard from "../components/Card/ProductCard";
 
 const Search = () => {
   const filterProducts = useSelector(state => state.product.filteredData);
-  console.log(filterProducts);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -14,12 +13,12 @@ const Search = () => {
       <div className="mx-auto py-12 px-4 md:px-16 lg:px-24">
         {filterProducts.length > 0 ? (
           <div>
-            <h2 className="text-2xl font-bold mb-6 text-white" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>Shop</h2>
+            <h2 className="text-2xl font-bold mb-6 text-white" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>Products</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {filterProducts.map(((product) => (
                 <div key={product._id} className="bg-white p-4 rounded-lg shadow-md">
-                  <SearchCard data={product} />
+                  <ProductCard data={product} />
                 </div>
               )))}
             </div>

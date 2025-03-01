@@ -1,21 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { FaSearch, FaUserCircle, FaShoppingBasket } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setSearchTerm } from "../../redux/productSlice";
+import { setProducts } from "../../redux/productSlice";
+import { setCategories } from "../../redux/categorySlice";
+import productServices from "../../../../api/services/product";
+import categorieServices from "../../../../api/services/categorie";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [search, setSearch] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [search, setSearch] = useState();
+  const [product, setProduct] = useState([]);
+  const [category, setCategory] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(setSearchTerm(search));
     navigate('/search');
   };
+
+  useEffect(() => {
+    dispatch(setProducts(product));
+    dispatch(setCategories(category));
+  }, [product, category]);
+
+  useEffect(() => {
+    const fetchPro = async () => {
+      try {
+        const data = await productServices.get();
+        setProduct(data.data || []);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    const fetchCat = async () => {
+      try {
+        const data = await categorieServices.get();
+        setCategory(data.data || []);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchPro();
+    fetchCat();
+  }, []);
 
   return (
     <nav className="flex flex-col justify-center items-center w-full">
@@ -34,7 +69,7 @@ const Navbar = () => {
 
         {/* Menu */}
         <ul className="flex gap-6 items-center justify-center" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>
-          <li>SHOP</li>
+          <li onClick={() => navigate('/shop')}>SHOP</li>
           <li>SERVICES</li>
           <li>GIFT CARD</li>
           <li onClick={() => navigate('/contact-us')}>CONTACT</li>
@@ -65,7 +100,7 @@ const Navbar = () => {
 
           {/* Menu */}
           <ul className="flex flex-col gap-3 items-center" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>
-            <li>SHOP</li>
+            <li onClick={() => navigate('/shop')}>SHOP</li>
             <li>SERVICES</li>
             <li>GIFT CARD</li>
             <li>CONTACT</li>
@@ -80,6 +115,6 @@ const Navbar = () => {
       )}
     </nav>
   );
-}
+};
 
 export default Navbar;

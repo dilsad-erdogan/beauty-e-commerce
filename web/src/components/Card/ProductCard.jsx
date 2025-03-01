@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 
-const SearchCard = ({ data }) => {
+const ProductCard = ({ data }) => {
   const dispatch = useDispatch();
 
   const handleAddToCard = (e, product) => {
@@ -42,4 +42,4 @@ const SearchCard = ({ data }) => {
   );
 };
   
-export default SearchCard;
+export default ProductCard;
