@@ -21,6 +21,7 @@ app.use(morgan('dev'));
 app.use('/categorie', require('./routers/categorie'));
 app.use('/order', require('./routers/order'));
 app.use('/product', require('./routers/product'));
+app.use('/service', require('./routers/service'));
 app.use('/role', require('./routers/role'));
 app.use('/user', require('./routers/user'));
 
