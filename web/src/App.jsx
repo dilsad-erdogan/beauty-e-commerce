@@ -5,6 +5,7 @@ import Shop from './pages/Shop';
 import Search from './pages/Search';
 import Footer from './components/Bars/Footer';
 import ContactUs from './pages/ContactUs';
+import Order from './pages/Order';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/shop' element={<Shop />} />
           <Route path='/search' element={<Search />} />
           <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/order' element={<Order />} />
         </Routes>
 
         {/* Footer */}
