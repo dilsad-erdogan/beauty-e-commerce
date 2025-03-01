@@ -6,6 +6,7 @@ import Search from './pages/Search';
 import Footer from './components/Bars/Footer';
 import ContactUs from './pages/ContactUs';
 import Order from './pages/Order';
+import Service from './pages/Service';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/shop' element={<Shop />} />
           <Route path='/search' element={<Search />} />
           <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/service' element={<Service />} />
           <Route path='/order' element={<Order />} />
         </Routes>
 
