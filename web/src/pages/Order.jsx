@@ -138,6 +138,11 @@ const Order = () => {
               <div className="md:w-1/3 p-6 rounded-lg shadow-md border">
                 <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
 
+                <div className="mb-4">
+                  <label className="block">Your gift card code</label>
+                  <input type="text" placeholder="Enter code" className="w-full px-3 py-2 border" />
+                </div>
+
                 <div className="space-y-4">
                   {cart.products.map(product => (
                     <div key={product._id} className="flex justify-between">

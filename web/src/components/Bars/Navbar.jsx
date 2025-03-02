@@ -72,7 +72,7 @@ const Navbar = () => {
         <ul className="flex gap-6 items-center justify-center" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>
           <li onClick={() => navigate('/shop')}>SHOP</li>
           <li onClick={() => navigate('/service')}>SERVICES</li>
-          <li>GIFT CARD</li>
+          <li onClick={() => navigate('/gift-card')}>GIFT CARD</li>
           <li onClick={() => navigate('/contact-us')}>CONTACT</li>
         </ul>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
           <ul className="flex flex-col gap-3 items-center" style={{ fontFamily: "'Lucida Handwriting', cursive" }}>
             <li onClick={() => navigate('/shop')}>SHOP</li>
             <li onClick={() => navigate('/service')}>SERVICES</li>
-            <li>GIFT CARD</li>
+            <li onClick={() => navigate('/gift-card')}>GIFT CARD</li>
             <li>CONTACT</li>
           </ul>
 

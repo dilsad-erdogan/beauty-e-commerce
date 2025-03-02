@@ -25,6 +25,40 @@ app.use('/service', require('./routers/service'));
 app.use('/role', require('./routers/role'));
 app.use('/user', require('./routers/user'));
 
+// Random 6-digit code generation function
+const generateGiftCode = () => {
+    return Math.random().toString(36).substr(2, 6).toUpperCase();
+};
+
+// Email sending function
+app.post("/send-gift-card", async (req, res) => {
+    const { email, amount, quantity } = req.body;
+    const giftCode = generateGiftCode();
+  
+    try {
+        let transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASSWORD,
+            },
+        });
+  
+        let mailOptions = {
+            from: process.env.EMAIL,
+            to: email,
+            subject: "Your Gift Card Code 🎁",
+            text: `Thank you for your purchase!\n\nGift Card Amount: $${amount} x ${quantity}\nGift Code: ${giftCode}\n\nEnjoy your gift! 🎉`,
+        };
+  
+        await transporter.sendMail(mailOptions);
+        res.json({ success: true, message: "Gift card sent!" });
+    } catch (error) {
+        console.error("Error sending email:", error);
+        res.status(500).json({ success: false, message: "Failed to send email." });
+    }
+});
+
 app.get('/', (req, res) => {
     res.setHeader("Access-Control-Allow-Credentials", "true");
     res.send("Homepage");

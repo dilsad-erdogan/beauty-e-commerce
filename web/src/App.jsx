@@ -7,6 +7,7 @@ import Footer from './components/Bars/Footer';
 import ContactUs from './pages/ContactUs';
 import Order from './pages/Order';
 import Service from './pages/Service';
+import GiftCard from './pages/GiftCard';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/contact-us' element={<ContactUs />} />
           <Route path='/service' element={<Service />} />
           <Route path='/order' element={<Order />} />
+          <Route path='/gift-card' element={<GiftCard />} />
         </Routes>
 
         {/* Footer */}
