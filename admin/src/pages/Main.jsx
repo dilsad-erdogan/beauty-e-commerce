@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Widgets from "../components/Widgets";
 import TopSeller from "../components/TopSeller";
+import GoalComp from "../components/GoalComp";
 import orderService from "../../../api/services/order.js";
 import productService from "../../../api/services/product";
 import { useDispatch } from "react-redux";
@@ -56,7 +57,9 @@ const Main = () => {
           </div>
 
           {/* Goal Completion */}
-          <div className="rounded-xl bg-gray-700 col-span-2">Goal Completion</div>
+          <div className="rounded-xl bg-gray-700 col-span-2">
+            <GoalComp />
+          </div>
 
           {/* Order Stat. */}
           <div className="rounded-xl bg-gray-700 col-span-1">Order Stat.</div>
