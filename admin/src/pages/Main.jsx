@@ -3,16 +3,22 @@ import Widgets from "../components/Widgets";
 import TopSeller from "../components/TopSeller";
 import GoalComp from "../components/GoalComp";
 import OrderStat from "../components/OrderStat";
-import orderService from "../../../api/services/order.js";
+import orderService from "../../../api/services/order";
 import productService from "../../../api/services/product";
+import categoryService from "../../../api/services/categorie";
+import serviceService from "../../../api/services/service";
 import { useDispatch } from "react-redux";
 import { setOrders } from "../redux/orderSlice";
 import { setProducts } from "../redux/productSlice";
+import { setCategories } from "../redux/categorySlice";
+import { setServices } from "../redux/serviceSlice";
 
 const Main = () => {
   const dispatch = useDispatch();
   const [order, setOrder] = useState([]);
   const [product, setProduct] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [service, setService] = useState([]);
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -33,14 +39,36 @@ const Main = () => {
       }
     };
 
+    const fetchCat = async () => {
+      try {
+        const data = await categoryService.get();
+        setCategory(data.data || []);
+      } catch (error) {
+        console.error("Error fetching category:", error);
+      }
+    };
+
+    const fetchService = async () => {
+      try {
+        const data = await serviceService.get();
+        setService(data.data || []);
+      } catch (error) {
+        console.error("Error fetching service:", error);
+      }
+    };
+
     fetchOrder();
     fetchPro();
+    fetchCat();
+    fetchService();
   }, []);
 
   useEffect(() => {
     dispatch(setOrders(order));
     dispatch(setProducts(product));
-  }, [order, product]);
+    dispatch(setCategories(category));
+    dispatch(setServices(service));
+  }, [order, product, category, service]);
 
   return (
     <div className="flex w-full justify-center p-6 bg-black">
