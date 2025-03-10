@@ -81,5 +81,5 @@ const deleted = async (id) => {
     }
 };
 
-const productServices = { add, get, byId, updateName, updateTime, updatePrice, updateImage, deleted };
-export default productServices 
+const serviceServices = { add, get, byId, updateName, updateTime, updatePrice, updateImage, deleted };
+export default serviceServices 

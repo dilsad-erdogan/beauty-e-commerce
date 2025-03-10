@@ -1,9 +1,9 @@
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import orderService from "../../../api/services/order";
-import productService from "../../../api/services/product";
-import categoryService from "../../../api/services/categorie";
-import serviceService from "../../../api/services/service";
+import orderServices from "../../../api/services/order";
+import productServices from "../../../api/services/product";
+import categorieServices from "../../../api/services/categorie";
+import serviceServices from "../../../api/services/service";
 import { useDispatch } from "react-redux";
 import { setOrders } from "../redux/orderSlice";
 import { setProducts } from "../redux/productSlice";
@@ -20,7 +20,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const data = await orderService.get();
+        const data = await orderServices.get();
         setOrder(data.data || []);
       } catch (error) {
         console.error("Error fetching orders:", error);
@@ -29,7 +29,7 @@ const Navbar = () => {
 
     const fetchPro = async () => {
       try {
-        const data = await productService.get();
+        const data = await productServices.get();
         setProduct(data.data || []);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -38,7 +38,7 @@ const Navbar = () => {
 
     const fetchCat = async () => {
       try {
-        const data = await categoryService.get();
+        const data = await categorieServices.get();
         setCategory(data.data || []);
       } catch (error) {
         console.error("Error fetching category:", error);
@@ -47,7 +47,7 @@ const Navbar = () => {
 
     const fetchService = async () => {
       try {
-        const data = await serviceService.get();
+        const data = await serviceServices.get();
         setService(data.data || []);
       } catch (error) {
         console.error("Error fetching service:", error);
