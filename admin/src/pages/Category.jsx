@@ -1,29 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import categoryService from "../../../api/services/categorie";
-import { setCategories } from "../redux/categorySlice";
+import { useSelector } from 'react-redux';
 
 const Category = () => {
-  const dispatch = useDispatch();
-  const [category, setCategory] = useState([]);
   const categories = useSelector((state) => state.category.categories);
-
-  useEffect(() => {
-    const fetchCategory = async () => {
-      try {
-        const data = await categoryService.get();
-        setCategory(data.data || []);
-      } catch (error) {
-        console.error("Error fetching category:", error);
-      }
-    };
-
-    fetchCategory();
-  }, []);
-
-  useEffect(() => {
-    dispatch(setCategories(category));
-  }, [category]);
 
   return (
     <div className="flex-1 overflow-y-auto mt-10 p-5">
