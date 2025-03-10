@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import orderService from "../../../api/services/order";
 import productService from "../../../api/services/product";
 import categoryService from "../../../api/services/categorie";
